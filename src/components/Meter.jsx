@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const MeterContainer = styled.div`
   padding: 1em 2em;
-  width: 100%;
+  width: calc(100% - 4em);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,15 +20,15 @@ const MeterInner = styled.div`
   border-radius: 10px;
   height: 1em;
   background: ${props => props.color || "coral"};
-  width: ${props => `${props.width}%`};
+  width: ${props => `${props.value}%`};
 `;
 
-export function Meter({ width, bgColor, color }) {
-  width = width < 3 && width !== 0 ? 3 : width > 100 ? 100 : width;
+export function Meter({ value, bgColor, color }) {
+  value = value < 3 && value !== 0 ? 3 : value > 100 ? 100 : value;
   return (
     <MeterContainer>
       <MeterBackground bgColor={bgColor}>
-        <MeterInner width={width} color={color} />
+        <MeterInner value={value} color={color} />
       </MeterBackground>
     </MeterContainer>
   );

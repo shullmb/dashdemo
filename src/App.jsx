@@ -5,16 +5,19 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: null
+      data: {
+        meters: [3,33,66,100]
+      }
     }
   }
 
   render() {
+    const meters = this.state.data.meters.map( (value, i) => <Meter value={value} />)
     return (
       <div className="container">
         <h1>Hello, Dashboard!</h1>
-        <h3>Progress Meter</h3>
-        <Meter width={27} />
+        <h3>Progress Meters</h3>
+        {meters}
       </div>
     )
   }
