@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Meter } from './components/Meter';
+import { MultiMeter } from './components/MultiMeter';
 
 class App extends Component {
   constructor(props) {
@@ -12,12 +13,16 @@ class App extends Component {
   }
 
   render() {
-    const meters = this.state.data.meters.map( (value, i) => <Meter value={value} />)
+    const meters = this.state.data.meters.map( (value, i) => <Meter key={i} value={value} />)
     return (
       <div className="container">
         <h1>Hello, Dashboard!</h1>
         <h3>Progress Meters</h3>
         {meters}
+        <h3>MultiMeters</h3>
+        <MultiMeter />
+        <MultiMeter />
+        <MultiMeter />
       </div>
     )
   }
